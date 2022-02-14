@@ -1,8 +1,8 @@
 {
-    "name": "@shopify/prettier-config",
+    "name": "@hkamran/prettier-config",
     "version": "1.0.0",
     "license": "MIT",
-    "description": "Shared prettier configuration",
+    "description": "My personal Prettier configuration",
     "main": "index.json",
     "author": {
         "name": "H. Kamran",
