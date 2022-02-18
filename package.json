@@ -1,7 +1,16 @@
 {
     "name": "web-configs",
     "private": true,
+    "scripts": {
+        "lint": "eslint --ext .js,.ts --fix",
+        "format": "prettier . --write"
+    },
     "devDependencies": {
-        "lerna": "^4.0.0"
-    }
+        "@hkamran/prettier-config": "file:packages/prettier-config",
+        "eslint": "^8.9.0",
+        "eslint-config-prettier": "^8.3.0",
+        "lerna": "^4.0.0",
+        "prettier": "^2.5.1"
+    },
+    "prettier": "@hkamran/prettier-config"
 }
