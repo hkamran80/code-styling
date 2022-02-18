@@ -318,8 +318,7 @@ if (argv.styling) {
     const packageJson = JSON.parse((await readFile("package.json")).toString());
 
     packageJson["prettier"] = "@hkamran/prettier-config";
-    packageJson["scripts"]["lint"] =
-        "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix";
+    packageJson["scripts"]["lint"] = "eslint --ext .js,.ts,.vue --fix";
     packageJson["scripts"]["format"] = "prettier . --write";
 
     await writeFile("package.json", JSON.stringify(packageJson));
