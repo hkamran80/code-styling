@@ -31,17 +31,7 @@ const tailwindCSS = `@tailwind base;
 @tailwind components;
 @tailwind utilities;`;
 
-const eslintViteConfig = `import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import eslintPlugin from "vite-plugin-eslint";
-
-// https://vitejs.dev/config/
-export default defineConfig({
-    plugins: [vue(), eslintPlugin()],
-});
-`;
-
-const htmlViteConfig = `import { defineConfig } from "vite";
+const viteConfig = `import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import htmlConfig from "vite-plugin-html-config";
 
@@ -112,83 +102,6 @@ export default defineConfig({
             ],
         }),
         vue(),
-    ],
-});
-`;
-
-const fullViteConfig = `import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import htmlConfig from "vite-plugin-html-config";
-import eslintPlugin from "vite-plugin-eslint";
-
-const name = "";
-const keywords = "";
-const description = "";
-const faviconUrl = "";
-const twitterUsername = "";
-
-// https://vitejs.dev/config/
-export default defineConfig({
-    plugins: [
-        htmlConfig({
-            metas: [
-                { charset: "UTF-8" },
-                {
-                    name: "viewport",
-                    content: "width=device-width, initial-scale=1.0",
-                },
-                {
-                    name: "keywords",
-                    content: keywords,
-                },
-                {
-                    name: "description",
-                    content: description,
-                },
-                { name: "robots", content: "index, follow" },
-
-                // Open Graph
-                { property: "og:title", content: name },
-                {
-                    property: "og:image",
-                    content: faviconUrl,
-                },
-                { property: "og:type", content: "website" },
-                { property: "og:description", content: description },
-
-                // Twitter Cards
-                { name: "twitter:card", content: "summary" },
-                { name: "twitter:site", content: twitterUsername },
-                { name: "twitter:creator", content: twitterUsername },
-                { name: "twitter:title", content: name },
-                { name: "twitter:description", content: description },
-                {
-                    name: "twitter:image",
-                    content: faviconUrl,
-                },
-                {
-                    name: "twitter:image:alt",
-                    content: \`The \${name} logo\`,
-                },
-            ],
-            links: [
-                // Comment one of the favicon objects out
-                { rel: "icon", type: "image/png", href: "/favicon.png" },
-                { rel: "icon", href: "/favicon.ico" },
-                { rel: "preconnect", href: "https://fonts.googleapis.com/" },
-                {
-                    rel: "preconnect",
-                    href: "https://fonts.gstatic.com",
-                    crossorigin: "",
-                },
-                {
-                    rel: "stylesheet",
-                    href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap",
-                },
-            ],
-        }),
-        vue(),
-        eslintPlugin(),
     ],
 });
 `;
@@ -261,8 +174,11 @@ dist
 
 const eslintConfig = `module.exports = {
     root: true,
-    env: { node: true },
-    parser: "@typescript-eslint/parser",
+    env: { node: true, "vue/setup-compiler-macros": true },
+    parser: "vue-eslint-parser",
+    parserOptions: {
+        parser: "@typescript-eslint/parser",
+    },
     plugins: ["@typescript-eslint"],
     extends: [
         "eslint:recommended",
@@ -271,8 +187,18 @@ const eslintConfig = `module.exports = {
         "plugin:vue/vue3-recommended",
         "prettier",
     ],
+    rules: { "vue/multi-word-component-names": "off" },
 };
 `;
+
+const netlifyRedirects = `/robots.txt     /robots.txt     200
+/*              /index.html     200`;
+
+const allowRobots = `User-agent: *
+Disallow:`;
+
+const disallowRobots = `User-agent: *
+Disallow: /`;
 
 const argv = await yargs(hideBin(process.argv))
     .option("styling", {
@@ -291,6 +217,15 @@ const argv = await yargs(hideBin(process.argv))
         describe: "Install Tailwind CSS",
         type: "boolean",
     })
+    .option("netlify", {
+        describe: "Add Netlify-specific files (e.g. redirects)",
+        type: "boolean",
+    })
+    .option("disallow-robots", {
+        describe: "Disallow all automated crawlers (robots)",
+        type: "boolean",
+        default: false,
+    })
     .option("verbose", {
         alias: "v",
         describe: "Show log messages",
@@ -308,7 +243,7 @@ if (argv.styling) {
     log("Installing ESLint and Prettier...");
 
     await exec(
-        "npm install -D eslint eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier @hkamran/prettier-config eslint-plugin-vue vite-plugin-eslint",
+        "npm install -D eslint eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier @hkamran/prettier-config eslint-plugin-vue",
     );
 
     await writeFile(".eslintignore", ignoreFiles);
@@ -330,10 +265,6 @@ if (argv.styling) {
     await exec("npm run format");
 
     log("Linted and formatted!");
-
-    if (!argv.viteHtml) {
-        await writeFile("vite.config.ts", eslintViteConfig);
-    }
 }
 
 // Vite Plugin - HTML Config
@@ -341,10 +272,7 @@ if (argv.viteHtml) {
     log("Installing HTML config...");
 
     await exec("npm install -D vite-plugin-html-config");
-    await writeFile(
-        "vite.config.ts",
-        !argv.styling ? htmlViteConfig : fullViteConfig,
-    );
+    await writeFile("vite.config.ts", viteConfig);
     await writeFile("index.html", indexHtml);
 
     log("Installed HTML config!");
@@ -364,7 +292,10 @@ if (argv.router) {
         .toString()
         .replace(/<style((.|\n|\r)*?)<\/style>/, "");
 
-    await writeFile("src/views/Home.vue", existingAppVue);
+    await writeFile(
+        "src/views/Home.vue",
+        existingAppVue.replace("./components", "../components"),
+    );
     await writeFile("src/App.vue", appVueFile);
 
     const vueConfig = (await readFile("src/main.ts")).toString();
@@ -412,4 +343,22 @@ if (argv.tailwindcss) {
     }
 
     log("Installed Tailwind CSS!");
+}
+
+// Netlify
+if (argv.netlify) {
+    log("Adding Netlify redirects file...");
+    await writeFile("public/_redirects", netlifyRedirects);
+    log("Added Netlify redirects file!");
+}
+
+// Robots.txt
+if (argv.disallowRobots) {
+    log("Adding robots.txt (disallow)...");
+    await writeFile("public/robots.txt", disallowRobots);
+    log("Added robots.txt (disallow)!");
+} else {
+    log("Adding robots.txt (allow)...");
+    await writeFile("public/robots.txt", allowRobots);
+    log("Added robots.txt (allow)!");
 }

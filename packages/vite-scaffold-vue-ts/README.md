@@ -18,10 +18,12 @@ $ npx @hkamran/vite-scaffold-vue-ts
 
 I recommend using this program with `npx`, via `npx @hkamran/vite-scaffold-vue-ts`. However if you would like, you can also use it by installing it, then using the `vite-scaffold-vue-ts` binary.
 
-### Options
+### Flags
 
 -   `--styling`: Install [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) and configure them
 -   `--vite-html`: Install [`vite-plugin-html-config`](https://github.com/ahwgs/vite-plugin-html-config) to manage HTML head tags and configure it
 -   `--router`: Install [`vue-router`](https://router.vuejs.org/) and configure it
 -   `--tailwindcss`: Install [Tailwind CSS](https://tailwindcss.com/) and configure it
+-   `--netlify`: Add the Netlify [`_redirects` file](https://docs.netlify.com/routing/redirects/)
+-   `--disallow-robots`: Add a `robots.txt` that disallows all bots (omitting this flag will add the version that allows all)
 -   `--verbose`: Show output

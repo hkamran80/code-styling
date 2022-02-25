@@ -9,3 +9,18 @@ My personal Prettier configuration
 ```bash
 $ npm i -D @hkamran/prettier-config
 ```
+
+## Usage
+
+Add the following key-value pair to your `package.json` file.
+
+```json
+"prettier": "@hkamran/prettier-config"
+```
+
+## Settings
+
+| Rule            | Setting |
+| --------------- | ------- |
+| Trailing Commas | all     |
+| Tab Width       | 4       |
