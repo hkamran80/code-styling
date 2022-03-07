@@ -1,6 +1,6 @@
 {
     "name": "@hkamran/vite-scaffold-vue-ts",
-    "version": "1.0.2",
+    "version": "1.0.7",
     "license": "GPLv3",
     "description": "A tool to scaffold a Vite-powered Vue 3 (TypeScript) app",
     "main": "index.js",

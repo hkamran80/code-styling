@@ -187,7 +187,7 @@ const eslintConfig = `module.exports = {
         "plugin:vue/vue3-recommended",
         "prettier",
     ],
-    rules: { "vue/multi-word-component-names": "off" },
+    rules: { "vue/multi-word-component-names": "off", "vue/no-v-html": "off" },
 };
 `;
 
@@ -201,6 +201,11 @@ const disallowRobots = `User-agent: *
 Disallow: /`;
 
 const argv = await yargs(hideBin(process.argv))
+    .option("npm-executable", {
+        describe: "The NPM executable to use",
+        type: "string",
+        default: "npm",
+    })
     .option("styling", {
         describe: "Install ESLint and Prettier",
         type: "boolean",
@@ -243,7 +248,7 @@ if (argv.styling) {
     log("Installing ESLint and Prettier...");
 
     await exec(
-        "npm install -D eslint eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier @hkamran/prettier-config eslint-plugin-vue",
+        `${argv.npmExecutable} install -D eslint eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier @hkamran/prettier-config eslint-plugin-vue`,
     );
 
     await writeFile(".eslintignore", ignoreFiles);
@@ -261,8 +266,8 @@ if (argv.styling) {
     log("Installed ESLint and Prettier!");
     log("Linting and formatting...");
 
-    await exec("npm run lint");
-    await exec("npm run format");
+    await exec(`${argv.npmExecutable} run lint`);
+    await exec(`${argv.npmExecutable} run format`);
 
     log("Linted and formatted!");
 }
@@ -271,7 +276,7 @@ if (argv.styling) {
 if (argv.viteHtml) {
     log("Installing HTML config...");
 
-    await exec("npm install -D vite-plugin-html-config");
+    await exec(`${argv.npmExecutable} install -D vite-plugin-html-config`);
     await writeFile("vite.config.ts", viteConfig);
     await writeFile("index.html", indexHtml);
 
@@ -282,7 +287,7 @@ if (argv.viteHtml) {
 if (argv.router) {
     log("Installing vue-router...");
 
-    await exec("npm install vue-router");
+    await exec(`${argv.npmExecutable} install vue-router`);
     await mkdir("src/router", { recursive: true });
     await mkdir("src/views", { recursive: true });
 
@@ -323,8 +328,10 @@ if (argv.router) {
 if (argv.tailwindcss) {
     log("Installing Tailwind CSS...");
 
-    await exec("npm install -D tailwindcss postcss autoprefixer");
-    await exec("npx tailwindcss init -p");
+    await exec(
+        `${argv.npmExecutable} install -D tailwindcss postcss autoprefixer`,
+    );
+    await exec(`${argv.npmExecutable.replace("m", "x")} tailwindcss init -p`);
     await writeFile("tailwind.config.js", tailwindConfig);
     await writeFile("src/index.css", tailwindCSS);
 
