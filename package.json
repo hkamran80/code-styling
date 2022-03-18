@@ -1,17 +1,15 @@
 {
-    "name": "web-configs",
+    "name": "devtools",
     "private": true,
     "scripts": {
         "lint": "eslint --ext .js,.ts --fix",
         "format": "prettier . --write",
-        "prepare": "npm run lint && npm run format",
-        "lerna:publish": "lerna publish --no-git-tag-version --no-push --no-private"
+        "prepare": "npm run lint && npm run format"
     },
     "devDependencies": {
         "@hkamran/prettier-config": "file:packages/prettier-config",
         "eslint": "^8.9.0",
         "eslint-config-prettier": "^8.3.0",
-        "lerna": "^4.0.0",
         "prettier": "^2.5.1"
     },
     "prettier": "@hkamran/prettier-config"

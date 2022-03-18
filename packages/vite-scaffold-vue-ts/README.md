@@ -1,5 +1,5 @@
 # `@hkamran/vite-scaffold-vue-ts`
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](../../LICENSE.md) [![npm version](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL3.0-green.svg)](../../LICENSE.md) [![npm version](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)
 
 A scaffolding system for Vite-powered Vue 3 (TypeScript) apps
 

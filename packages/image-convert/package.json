@@ -1,0 +1,39 @@
+{
+    "name": "@hkamran/image-convert",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "description": "Convert PNG files to the WebP and AVIF file formats",
+    "main": "index.js",
+    "bin": {
+        "image-convert": "./index.js"
+    },
+    "type": "module",
+    "files": [
+        "index.js"
+    ],
+    "author": {
+        "name": "H. Kamran",
+        "email": "hkamran@hkamran.com",
+        "url": "https://hkamran.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hkamran80/devtools.git",
+        "directory": "packages/image-convert"
+    },
+    "bugs": {
+        "url": "https://github.com/hkamran80/devtools/issues"
+    },
+    "homepage": "https://github.com/hkamran80/devtools/blob/main/packages/image-convert/README.md",
+    "dependencies": {
+        "glob": "^7.2.0",
+        "sharp": "^0.30.3",
+        "yargs": "^17.3.1"
+    },
+    "keywords": [
+        "image",
+        "convert",
+        "avif",
+        "webp"
+    ]
+}

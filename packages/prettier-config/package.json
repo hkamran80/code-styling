@@ -11,11 +11,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hkamran80/web-configs.git",
+        "url": "git+https://github.com/hkamran80/devtools.git",
         "directory": "packages/prettier-config"
     },
     "bugs": {
-        "url": "https://github.com/hkamran80/web-configs/issues"
+        "url": "https://github.com/hkamran80/devtools/issues"
     },
-    "homepage": "https://github.com/hkamran80/web-configs/blob/main/packages/prettier-config/README.md"
+    "homepage": "https://github.com/hkamran80/devtools/blob/main/packages/prettier-config/README.md"
 }
