@@ -2,7 +2,7 @@
     "name": "@hkamran/image-convert",
     "version": "1.0.1",
     "license": "AGPL-3.0-or-later",
-    "description": "Convert PNG files to the WebP and AVIF file formats",
+    "description": "Convert images to the AVIF and WebP file formats",
     "main": "index.js",
     "bin": {
         "image-convert": "./index.js"
