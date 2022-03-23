@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { promisify } from "util";
 import globC from "glob";
 import yargs from "yargs";
@@ -145,11 +147,3 @@ const results = Promise.all(
         }),
     ),
 );
-
-// process.exit(results.every(Boolean) ? 0 : 1);
-// process.exit(
-//     results.map((r) => Boolean(r)).filter((r) => r === true).length ===
-//         results.length
-//         ? 0
-//         : 1,
-// );
