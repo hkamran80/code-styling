@@ -170,7 +170,8 @@ const tailwindIndexHtml = `<!DOCTYPE html>
 
 const ignoreFiles = `node_modules
 dist
-.gitignore`;
+.gitignore
+*.md`;
 
 const eslintConfig = `module.exports = {
     root: true,
