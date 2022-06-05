@@ -339,7 +339,7 @@ if (argv.tailwindcss) {
     const vueConfig = (await readFile("src/main.ts")).toString();
     const vueConfigLines = vueConfig.slice().split("\n");
     const lastImportLine = vueConfigLines
-        .map((line) => line.indexOf("import ") !== -1)
+        .map((line) => line.startsWith("import "))
         .lastIndexOf(true);
 
     vueConfigLines.splice(lastImportLine + 1, 0, 'import "./index.css";');
