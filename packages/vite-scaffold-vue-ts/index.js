@@ -195,15 +195,16 @@ const eslintConfig = `module.exports = {
 const netlifyRedirects = `/robots.txt     /robots.txt     200
 /*              /index.html     200`;
 
-const allowRobots = `User-agent: *
-Disallow:`;
-
-const disallowRobots = `User-agent: *
-Disallow: /`;
+const robots = {
+    allow: `User-agent: *
+Disallow:`,
+    disallow: `User-agent: *
+Disallow: /`,
+};
 
 const argv = await yargs(hideBin(process.argv))
     .option("npm-executable", {
-        describe: "The NPM executable to use",
+        describe: "The npm executable to use",
         type: "string",
         default: "npm",
     })
@@ -363,10 +364,10 @@ if (argv.netlify) {
 // Robots.txt
 if (argv.disallowRobots) {
     log("Adding robots.txt (disallow)...");
-    await writeFile("public/robots.txt", disallowRobots);
+    await writeFile("public/robots.txt", robots.disallow);
     log("Added robots.txt (disallow)!");
 } else {
     log("Adding robots.txt (allow)...");
-    await writeFile("public/robots.txt", allowRobots);
+    await writeFile("public/robots.txt", robots.allow);
     log("Added robots.txt (allow)!");
 }
