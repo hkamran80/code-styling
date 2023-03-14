@@ -1,7 +1,7 @@
 {
     "name": "@hkamran/prettier-config",
     "version": "1.0.0",
-    "license": "MIT",
+    "license": "AGPL-3.0-or-later",
     "description": "My personal Prettier configuration",
     "main": "index.json",
     "author": {
