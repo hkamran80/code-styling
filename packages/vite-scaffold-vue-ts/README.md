@@ -1,26 +1,26 @@
 # `@hkamran/vite-scaffold-vue-ts`
-[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL3.0-green.svg)](../../LICENSE.md) [![npm version](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)
+
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL3.0-green.svg)](../../LICENSE.md)
+[![npm version](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)](https://badge.fury.io/js/%40hkamran%2Fvite-scaffold-vue-ts.svg)
 
 A scaffolding system for Vite-powered Vue 3 (TypeScript) apps
 
-## Installation
-```bash
-$ npm i -D @hkamran/vite-scaffold-vue-ts
-```
-
-```bash
-$ npx @hkamran/vite-scaffold-vue-ts
-```
-
 ## Usage
-I recommend using this program with `npx`, via `npx @hkamran/vite-scaffold-vue-ts`. However if you would like, you can also use it by installing it, then using the `vite-scaffold-vue-ts` binary.
+
+```bash
+npx @hkamran/vite-scaffold-vue-ts
+```
 
 ### Flags
-- `--npm-executable [npm executable]` (optional, defaults to `npm`): The NPM executable to use
-- `--styling`: Install [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) and configure them
-- `--vite-html`: Install [`vite-plugin-html-config`](https://github.com/ahwgs/vite-plugin-html-config) to manage HTML head tags and configure it
-- `--router`: Install [`vue-router`](https://router.vuejs.org/) and configure it
-- `--tailwindcss`: Install [Tailwind CSS](https://tailwindcss.com/) and configure it
+
+- `--npm-executable [npm executable]` (optional, defaults to `npm`): The `npm` executable
+  to use (e.g. `npm`, [`pnpm`](https://pnpm.io), or [`yarn`](https://yarnpkg.com))
+- `--styling`: Install and configure [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)
+- `--vite-html`: Install and configure [`vite-plugin-html-config`](https://github.com/ahwgs/vite-plugin-html-config)
+  to manage HTML head tags
+- `--router`: Install and configure [`vue-router`](https://router.vuejs.org/)
+- `--tailwindcss`: Install and configure [Tailwind CSS](https://tailwindcss.com/)
 - `--netlify`: Add the Netlify [`_redirects` file](https://docs.netlify.com/routing/redirects/)
-- `--disallow-robots`: Add a `robots.txt` that disallows all bots (omitting this flag will add the version that allows all)
+- `--disallow-robots`: Add a `robots.txt` that disallows all bots (omitting this
+  flag will add the version that allows all)
 - `--verbose`: Show output
