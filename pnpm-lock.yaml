@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
     "@hkamran/prettier-config": file:packages/prettier-config
@@ -7,7 +7,7 @@ specifiers:
     prettier: ^2.5.1
 
 devDependencies:
-    "@hkamran/prettier-config": link:packages/prettier-config
+    "@hkamran/prettier-config": file:packages/prettier-config
     eslint: 8.11.0
     eslint-config-prettier: 8.5.0_eslint@8.11.0
     prettier: 2.6.0
@@ -779,4 +779,10 @@ packages:
 
     /wrappy/1.0.2:
         resolution: { integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8= }
+        dev: true
+
+    file:packages/prettier-config:
+        resolution: { directory: packages/prettier-config, type: directory }
+        name: "@hkamran/prettier-config"
+        version: 1.0.0
         dev: true
