@@ -9,7 +9,7 @@ const exec = promisify(cpExec);
 
 const packageJson = `{
     "name": "@hkamran/utility-{{name}}",
-    "version": "1.0.0-beta.0",
+    "version": "0.1.0",
     "description": "{{description}}",
     "main": "index.js",
     "types": "index.d.ts",
@@ -43,27 +43,27 @@ const packageJson = `{
 const indexJs = `console.log("Hello world!");`;
 
 const readme = `# \`@hkamran/utility-{{name}}\`
-[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL3.0-green.svg)](../../LICENSE.md) [![npm version](https://badge.fury.io/js/%40hkamran%2Futility-{{name}}.svg)](https://badge.fury.io/js/%40hkamran%2Futility-{{name}}.svg)
 
-{{description}}
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL3.0-green.svg)](../../LICENSE.md)
+[![npm version](https://badge.fury.io/js/%40hkamran%2Futility-{{name}}.svg)](https://badge.fury.io/js/%40hkamran%2Futility-{{name}}.svg)
+
+Create a utility
 
 ## Usage
+
 \`\`\`bash
-$ npm i @hkamran/utility-{{name}}
+npx @hkamran/utility-{{name}}
 \`\`\`
-`;
+`
 
 const questions = [
     {
         type: "list",
         name: "npm_executable",
         message: "Which package manager do you use?",
-        choices: ["NPM", "PNPM", "Yarn"],
-        filter(val) {
-            return val.toLowerCase();
-        },
+        choices: ["npm", "pnpm", "yarn"],
         default() {
-            return "NPM";
+            return "npm";
         },
     },
     {
