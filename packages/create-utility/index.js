@@ -54,7 +54,7 @@ Create a utility
 \`\`\`bash
 npx @hkamran/utility-{{name}}
 \`\`\`
-`
+`;
 
 const questions = [
     {
