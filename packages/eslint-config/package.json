@@ -43,5 +43,8 @@
             "./.eslintrc.js"
         ]
     },
-    "prettier": "@hkamran/prettier-config"
+    "prettier": "@hkamran/prettier-config",
+    "publishConfig": {
+        "access": "public"
+    }
 }
