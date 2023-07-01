@@ -39,16 +39,6 @@ module.exports = {
             { requireReturnForObjectLiteral: false },
         ],
         "space-before-function-paren": "off",
-        "comma-dangle": [
-            "error",
-            {
-                arrays: "only-multiline",
-                objects: "only-multiline",
-                imports: "only-multiline",
-                exports: "only-multiline",
-                functions: "never",
-            },
-        ],
 
         "import/first": "error",
         "import/newline-after-import": "error",
