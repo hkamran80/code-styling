@@ -1,9 +1,10 @@
 {
     "name": "@hkamran/eslint-config",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "license": "AGPL-3.0-or-later",
     "description": "My personal ESLint configuration",
     "main": "index.js",
+    "type": "module",
     "author": {
         "name": "H. Kamran",
         "email": "hkamran@hkamran.com",
@@ -12,36 +13,31 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/hkamran80/devtools.git",
-        "directory": "packages/prettier-config"
+        "directory": "packages/eslint-config"
     },
     "bugs": {
         "url": "https://github.com/hkamran80/devtools/issues"
     },
-    "homepage": "https://github.com/hkamran80/devtools/blob/main/packages/prettier-config/README.md",
+    "homepage": "https://github.com/hkamran80/devtools/blob/main/packages/eslint-config/README.md",
     "keywords": [
         "eslint",
         "eslint-config"
     ],
     "devDependencies": {
+        "@eslint/js": "^9.11.1",
         "@hkamran/prettier-config": "link:../prettier-config",
-        "@typescript-eslint/parser": "^5.60.1",
-        "eslint": "^8.43.0",
-        "eslint-config-next": "^13.4.7",
+        "@types/eslint__js": "^8.42.3",
+        "@typescript-eslint/parser": "^8.8.0",
+        "@typescript-eslint/utils": "^8.8.0",
+        "eslint": "^8.57.1",
         "eslint-config-prettier": "^8.8.0",
-        "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-3",
-        "prettier": "^2.8.8",
-        "typescript": "^5.1.6"
+        "eslint-import-resolver-typescript": "^3.6.3",
+        "eslint-plugin-import": "^2.30.0",
+        "prettier": "^2.8.8"
     },
     "peerDependencies": {
         "eslint": "^8.0.0",
-        "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-3",
-        "prettier": "^2.7.1",
-        "typescript": "^4.8.4"
-    },
-    "eslintConfig": {
-        "extends": [
-            "./.eslintrc.js"
-        ]
+        "prettier": "^2.7.1"
     },
     "prettier": "@hkamran/prettier-config",
     "publishConfig": {
