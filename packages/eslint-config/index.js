@@ -32,7 +32,7 @@ export default [
                     props: false,
                 },
             ],
-            "no-console": "error",
+            "no-console": "warn",
             "no-underscore-dangle": "error",
 
             "prefer-const": [
