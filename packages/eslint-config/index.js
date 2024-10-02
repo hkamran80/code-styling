@@ -13,7 +13,6 @@ export default [
             ecmaVersion: "latest",
             sourceType: "module",
         },
-        plugins: { import: importPlugin },
         rules: {
             "no-alert": "error",
             "no-await-in-loop": "error",
