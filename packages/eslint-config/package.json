@@ -4,6 +4,7 @@
     "license": "AGPL-3.0",
     "description": "My personal ESLint configuration",
     "main": "index.js",
+    "types": "index.d.ts",
     "type": "module",
     "scripts": {
         "prepare": "rimraf index.d.ts && tsc"
