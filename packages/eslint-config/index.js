@@ -74,10 +74,6 @@ export default [
                     ],
                 },
             ],
-
-            // Must be turned off because of the `context.getAncestors` error seen in
-            // import-js/eslint-plugin-import#2995 and import-js/eslint-plugin-import#2556#issuecomment-2121423498
-            "import/no-named-as-default": "off",
         },
     },
 ];
