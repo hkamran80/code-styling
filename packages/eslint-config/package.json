@@ -5,6 +5,9 @@
     "description": "My personal ESLint configuration",
     "main": "index.js",
     "type": "module",
+    "scripts": {
+        "prepare": "rimraf index.d.ts && tsc"
+    },
     "author": {
         "name": "H. Kamran",
         "email": "hkamran@hkamran.com",
@@ -34,7 +37,9 @@
         "@typescript-eslint/utils": "^8.8.0",
         "eslint": "^9.11.1",
         "eslint-config-prettier": "^9.1.0",
-        "prettier": "^3.3.3"
+        "prettier": "^3.3.3",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.6.2"
     },
     "peerDependencies": {
         "eslint": ">= 9",
