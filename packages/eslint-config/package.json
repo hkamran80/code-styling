@@ -1,6 +1,6 @@
 {
     "name": "@hkamran/eslint-config",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "license": "AGPL-3.0-or-later",
     "description": "My personal ESLint configuration",
     "main": "index.js",
@@ -24,6 +24,7 @@
         "eslint-config"
     ],
     "dependencies": {
+        "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-import": "^2.30.0"
     },
     "devDependencies": {
@@ -32,7 +33,6 @@
         "@types/eslint__js": "^8.42.3",
         "@typescript-eslint/utils": "^8.8.0",
         "eslint": "^9.11.1",
-        "eslint-config-prettier": "^9.1.0",
         "prettier": "^3.3.3"
     },
     "peerDependencies": {

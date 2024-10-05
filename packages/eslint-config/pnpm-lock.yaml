@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      eslint-config-prettier:
+        specifier: ^9.1.0
+        version: 9.1.0(eslint@9.11.1)
+      eslint-plugin-import:
+        specifier: ^2.30.0
+        version: 2.30.0(eslint@9.11.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.11.1
@@ -23,12 +30,6 @@ importers:
       eslint:
         specifier: ^9.11.1
         version: 9.11.1
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@9.11.1)
-      eslint-plugin-import:
-        specifier: ^2.30.0
-        version: 2.30.0(eslint@9.11.1)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
