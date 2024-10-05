@@ -1,14 +1,10 @@
 {
     "name": "@hkamran/eslint-config",
-    "version": "2.0.0",
-    "license": "AGPL-3.0",
+    "version": "2.0.1",
+    "license": "AGPL-3.0-or-later",
     "description": "My personal ESLint configuration",
     "main": "index.js",
-    "types": "index.d.ts",
     "type": "module",
-    "scripts": {
-        "prepare": "rimraf index.d.ts && tsc"
-    },
     "author": {
         "name": "H. Kamran",
         "email": "hkamran@hkamran.com",
@@ -28,19 +24,16 @@
         "eslint-config"
     ],
     "dependencies": {
-        "eslint-plugin-import": "^2.31.0"
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.30.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.11.1",
         "@hkamran/prettier-config": "link:../prettier-config",
-        "@types/eslint-config-prettier": "^6.11.3",
         "@types/eslint__js": "^8.42.3",
         "@typescript-eslint/utils": "^8.8.0",
         "eslint": "^9.11.1",
-        "eslint-config-prettier": "^9.1.0",
-        "prettier": "^3.3.3",
-        "rimraf": "^6.0.1",
-        "typescript": "^5.6.2"
+        "prettier": "^3.3.3"
     },
     "peerDependencies": {
         "eslint": ">= 9",
